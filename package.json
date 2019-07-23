@@ -1,6 +1,6 @@
 {
-  "name": "js-mongodb-utilities",
-  "version": "1.0.0",
+  "name": "@yeldirium/js-mongodb-utilities",
+  "version": "1.0.1",
   "description": "A collection of utility function for interacting with the node.js mongodb drive.",
   "main": "src/index.js",
   "repository": "git@github.com:yeldiRium/js-mongodb-utilities.git",
