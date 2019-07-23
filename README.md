@@ -1,6 +1,7 @@
 # JS Mongodb Utilities
 
 [![Build Status](https://travis-ci.org/yeldiRium/js-mongodb-utilities.svg?branch=master)](https://travis-ci.org/yeldiRium/js-mongodb-utilities)
+[![npm version](http://img.shields.io/npm/v/@yeldirium/js-mongodb-utilities.svg?style=flat)](https://npmjs.org/package/@yeldirium/js-mongodb-utilities "View this project on npm")
 
 A collection of some small utility functions for easier interaction with the node.js [mongodb driver](https://www.npmjs.com/package/mongodb).
 
