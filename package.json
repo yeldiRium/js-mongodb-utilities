@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "prettier --check src/**/*.js",
-    "test": "jest"
+    "test": "yarn run lint && jest"
   },
   "jest": {
     "globalSetup": "./jest/setup.js"
