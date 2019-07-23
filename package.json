@@ -15,6 +15,9 @@
     }
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "prettier --check src/**/*.js",
     "test": "yarn run lint && jest"
