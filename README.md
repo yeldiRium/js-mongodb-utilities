@@ -1,5 +1,7 @@
 # JS Mongodb Utilities
 
+[![Build Status](https://travis-ci.org/yeldiRium/js-mongodb-utilities.svg?branch=master)](https://travis-ci.org/yeldiRium/js-mongodb-utilities)
+
 A collection of some small utility functions for easier interaction with the node.js [mongodb driver](https://www.npmjs.com/package/mongodb).
 
 Contains a small helper that connects to a database and some helpers that resolve references between documents.
