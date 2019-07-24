@@ -7,6 +7,10 @@ A collection of some small utility functions for easier interaction with the nod
 
 Contains a small helper that connects to a database and some helpers that resolve references between documents.
 
+```
+npm install @yeldirium/js-mongodb-utilities
+```
+
 # DbRef
 
 A DbRef as defined by the utilities must match this schema:
