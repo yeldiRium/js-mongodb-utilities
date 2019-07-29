@@ -86,31 +86,22 @@ async function resolveDbRefs(db, document, collections = null, depth = -1) {
   if (depth === 0) {
     return document;
   }
-  for (const key in document) {
-    const value = document[key];
-    if (isDbRef(value)) {
-      if (!R.isNil(collections) && !collections.includes(value.collection))
-        continue;
-      const refDocument = await resolveDbRef(db, value);
-      document[key] = await resolveDbRefs(
-        db,
-        refDocument,
-        collections,
-        depth - 1
-      );
-    } else if (R.is(Array, value)) {
-      const values = value;
-      document[key] = await Promise.all(
-        values.map(async v => {
-          if (!isDbRef(v)) return v;
-          if (!R.isNil(collections) && !collections.includes(v.collection))
-            return v;
-          const refDocument = await resolveDbRef(db, v);
-          return resolveDbRefs(db, refDocument, collections, depth - 1);
-        })
-      );
+  const recurse = async v => {
+    if (!isDbRef(v)) return await resolveDbRefs(db, v, collections, depth - 1);
+    if (!R.isNil(collections) && !collections.includes(v.collection)) return v;
+    const resolved = await resolveDbRef(db, v);
+    return await resolveDbRefs(db, resolved, collections, depth - 1);
+  };
+
+  if (R.is(Array, document)) {
+    return await Promise.all(document.map(recurse));
+  } else if (R.is(Object, document)) {
+    for (const key in document) {
+      const value = document[key];
+      document[key] = await recurse(value);
     }
   }
+
   return document;
 }
 
