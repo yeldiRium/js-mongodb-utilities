@@ -1,6 +1,6 @@
 {
   "name": "@yeldirium/js-mongodb-utilities",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A collection of utility function for interacting with the node.js mongodb drive.",
   "keywords": [
     "mongodb"
