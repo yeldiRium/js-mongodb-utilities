@@ -160,6 +160,64 @@ describe("resolveDbRefs", () => {
         }
       })
     );
+    const regressionArrayOfDocsIds = extractInsertedIdsFromMongoDBResult(
+      await db.collection("c4").insertMany([
+        {
+          thisIs: "c4d1",
+          c1: [
+            {
+              collection: "c1",
+              id: c1d1Id
+            },
+            {
+              collection: "c1",
+              id: c1d2Id
+            }
+          ],
+          c2: {
+            collection: "c2",
+            id: c2d1Id
+          }
+        },
+        {
+          thisIs: "c4d2",
+          c1: [
+            {
+              collection: "c1",
+              id: c1d1Id
+            },
+            {
+              collection: "c1",
+              id: c1d2Id
+            }
+          ],
+          c2: {
+            collection: "c2",
+            id: c2d1Id
+          }
+        }
+      ])
+    );
+
+    const regressionArrayOfNestedDbRefsId = extractInsertedIdsFromMongoDBResult(
+      await db.collection("c5").insertOne({
+        thisIs: "c5d1",
+        c1: [
+          {
+            nested: {
+              collection: "c1",
+              id: c1d1Id
+            }
+          },
+          {
+            nested: {
+              collection: "c1",
+              id: c1d1Id
+            }
+          }
+        ]
+      })
+    );
   });
 
   it("does not resolve anything with depth 0", async () => {
@@ -196,6 +254,27 @@ describe("resolveDbRefs", () => {
     expect(resolved.c1[1]).toHaveProperty("thisIs");
     expect(resolved.c2).toHaveProperty("thisIs");
     expect(resolved.c2.c1).toHaveProperty("thisIs");
+  });
+
+  it("resolves an array of non-DbRef documents with DbRefs in them", async () => {
+    const documents = await db
+      .collection("c4")
+      .find()
+      .toArray();
+    const resolved = await resolveDbRefs(db, documents);
+    for (const r of resolved) {
+      expect(r.c1[0]).toHaveProperty("thisIs");
+      expect(r.c1[1]).toHaveProperty("thisIs");
+      expect(r.c2).toHaveProperty("thisIs");
+      expect(r.c2.c1).toHaveProperty("thisIs");
+    }
+  });
+
+  it("resolves a property, which is an array of non-DbRef documents with DbRefs in them", async () => {
+    const document = await db.collection("c5").findOne();
+    const resolved = await resolveDbRefs(db, document);
+    expect(resolved.c1[0].nested).toHaveProperty("thisIs");
+    expect(resolved.c1[1].nested).toHaveProperty("thisIs");
   });
 
   afterAll(async () => {
