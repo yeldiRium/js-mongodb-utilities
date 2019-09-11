@@ -1,18 +1,7 @@
 const { MongoClient, ObjectID } = require("mongodb");
 const R = require("ramda");
 
-/**
- * Checks if the given value is of the form
- * ```
- * {
- *   "collection": "nameOfACollection",
- *   "id": "documentIdInStringForm"
- * }
- * ```
- *
- * @param {*} value
- */
-const isDbRef = R.allPass([R.is(Object), R.has("collection"), R.has("id")]);
+const DbRef = require("./DbRef");
 
 /**
  * Connects to a MongoDB instance and returns a client and a database handle.
@@ -70,40 +59,14 @@ async function resolveDbRef(db, dbref) {
 }
 
 /**
- * Resolves the DbRefs in a given `document` that point to one of the given list
- * of `collections` recursively up to `depth` level.
- * If `collections` is null, all references are resolved.
- *
- * Does not check for cycles! Use `depth` if you know that there are cyclic
- * references.
+ * Given a mongodb document, finds and resolves DbRefs in that document.
  *
  * @param {*} db A mongodb database handle.
  * @param {*} document A document in which DbRefs should be resolved.
  * @param {Array<String>} collections A list of collection to which DbRefs should be resolved.
  * @param {Number} depth The depth of references to resolve. Not the depth of object nesting.
  */
-async function resolveDbRefs(db, document, collections = null, depth = -1) {
-  if (depth === 0) {
-    return document;
-  }
-  const recurse = async v => {
-    if (!isDbRef(v)) return await resolveDbRefs(db, v, collections, depth - 1);
-    if (!R.isNil(collections) && !collections.includes(v.collection)) return v;
-    const resolved = await resolveDbRef(db, v);
-    return await resolveDbRefs(db, resolved, collections, depth - 1);
-  };
-
-  if (R.is(Array, document)) {
-    return await Promise.all(document.map(recurse));
-  } else if (R.is(Object, document)) {
-    for (const key in document) {
-      const value = document[key];
-      document[key] = await recurse(value);
-    }
-  }
-
-  return document;
-}
+const resolve = DbRef.resolve(resolveDbRef);
 
 /**
  * Strips all `_id` fields from an object recursively.
@@ -119,9 +82,9 @@ function stripIds(document) {
 }
 
 module.exports = {
-  extractInsertedIdsFromMongoDBResult,
-  isDbRef,
   connect,
-  resolveDbRefs,
-  stripIds
+  extractInsertedIdsFromMongoDBResult,
+  stripIds,
+  isDbRef: DbRef.isDbRef,
+  resolve
 };
