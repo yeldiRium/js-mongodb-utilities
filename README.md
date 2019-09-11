@@ -37,7 +37,7 @@ A DbRef as defined by the utilities must match this schema:
 Where the value of `collection` must be the name of an existing collection and
 `id` must be the mongodb document `_id` of a document in said collection.
 
-Then `resolveDbRef` and `resolveDbRefs` can make your life easier by fetching
+Then `resolve` can make your life easier by fetching
 the referenced documents for you in a controlled way using a list of allowed
 target collections and a maximum depth.
 

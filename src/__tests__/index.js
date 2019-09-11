@@ -5,7 +5,7 @@ const {
   connect,
   extractInsertedIdsFromMongoDBResult,
   isDbRef,
-  resolveDbRefs,
+  resolve,
   stripIds
 } = require("../");
 
@@ -110,7 +110,7 @@ describe("extractInsertedIdsFromMongoDBResult", () => {
   });
 });
 
-describe("resolveDbRefs", () => {
+describe("resolve", () => {
   let mongod, client, db;
 
   beforeAll(async () => {
@@ -222,19 +222,19 @@ describe("resolveDbRefs", () => {
 
   it("does not resolve anything with depth 0", async () => {
     const document = await db.collection("c2").findOne();
-    const resolved = await resolveDbRefs(db, document, ["c1"], 0);
+    const resolved = await resolve(db, document, ["c1"], 0);
     expect(isDbRef(resolved.c1)).toBe(true);
   });
 
   it("resolves a single level of DbRefs", async () => {
     const document = await db.collection("c2").findOne();
-    const resolved = await resolveDbRefs(db, document, ["c1"], 1);
+    const resolved = await resolve(db, document, ["c1"], 1);
     expect(resolved.c1).toHaveProperty("thisIs");
   });
 
   it("does not resolve the wrong collections", async () => {
     const document = await db.collection("c3").findOne();
-    const resolved = await resolveDbRefs(db, document, ["c2"], 1);
+    const resolved = await resolve(db, document, ["c2"], 1);
     for (const d of resolved.c1) {
       expect(isDbRef(d)).toBe(true);
     }
@@ -243,13 +243,13 @@ describe("resolveDbRefs", () => {
 
   it("resolves arrays of DbRefs", async () => {
     const document = await db.collection("c2").findOne();
-    const resolved = await resolveDbRefs(db, document, ["c1"], 1);
+    const resolved = await resolve(db, document, ["c1"], 1);
     expect(isDbRef(resolved.c1)).toBe(false);
   });
 
   it("completely resolves an acyclic document", async () => {
     const document = await db.collection("c3").findOne();
-    const resolved = await resolveDbRefs(db, document);
+    const resolved = await resolve(db, document);
     expect(resolved.c1[0]).toHaveProperty("thisIs");
     expect(resolved.c1[1]).toHaveProperty("thisIs");
     expect(resolved.c2).toHaveProperty("thisIs");
@@ -261,7 +261,7 @@ describe("resolveDbRefs", () => {
       .collection("c4")
       .find()
       .toArray();
-    const resolved = await resolveDbRefs(db, documents);
+    const resolved = await resolve(db, documents);
     for (const r of resolved) {
       expect(r.c1[0]).toHaveProperty("thisIs");
       expect(r.c1[1]).toHaveProperty("thisIs");
@@ -272,7 +272,7 @@ describe("resolveDbRefs", () => {
 
   it("resolves a property, which is an array of non-DbRef documents with DbRefs in them", async () => {
     const document = await db.collection("c5").findOne();
-    const resolved = await resolveDbRefs(db, document);
+    const resolved = await resolve(db, document);
     expect(resolved.c1[0].nested).toHaveProperty("thisIs");
     expect(resolved.c1[1].nested).toHaveProperty("thisIs");
   });
