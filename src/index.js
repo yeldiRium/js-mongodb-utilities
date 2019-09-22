@@ -11,7 +11,7 @@ const DbRef = require("./DbRef");
  */
 async function connect(uri, dbName) {
   try {
-    const client = await MongoClient.connect(uri, { useNewUrlParser: true });
+    const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("Connected to database");
     return { client, db: client.db(dbName) };
   } catch (err) {
