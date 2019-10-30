@@ -11,12 +11,15 @@ const DbRef = require("./DbRef");
  */
 async function connect(uri, dbName) {
   try {
-    const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    console.log("Connected to database");
+    const client = await MongoClient.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log("Connected to MongoDB.");
     return { client, db: client.db(dbName) };
-  } catch (err) {
-    console.error(`Could not connect to database: ${err}`);
-    throw err;
+  } catch (ex) {
+    console.error(`Could not connect to MongoDB.`, { ex });
+    throw ex;
   }
 }
 
