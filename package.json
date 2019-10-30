@@ -23,7 +23,10 @@
   },
   "scripts": {
     "lint": "prettier --check src/**/*.js",
-    "test": "yarn run lint && jest"
+    "test": "yarn run lint && jest",
+    "publish-patch": "yarn version --patch && git push --tags && git push",
+    "publish-minor": "yarn version --minor && git push --tags && git push",
+    "publish-major": "yarn version --major && git push --tags && git push"
   },
   "jest": {
     "globalSetup": "./jest/setup.js"
