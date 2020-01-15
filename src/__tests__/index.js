@@ -14,10 +14,7 @@ async function setUpMemoryDb() {
   const uri = await mongod.getConnectionString();
   const dbName = await mongod.getDbName();
 
-  const { client, db } = await connect(
-    uri,
-    dbName
-  );
+  const { client, db } = await connect(uri, dbName);
 
   return {
     client,
