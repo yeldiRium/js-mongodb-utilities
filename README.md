@@ -1,15 +1,24 @@
 # JS Mongodb Utilities
 
-[![Build Status](https://travis-ci.org/yeldiRium/js-mongodb-utilities.svg?branch=master)](https://travis-ci.org/yeldiRium/js-mongodb-utilities)
-[![npm version](http://img.shields.io/npm/v/@yeldirium/js-mongodb-utilities.svg?style=flat)](https://npmjs.org/package/@yeldirium/js-mongodb-utilities "View this project on npm")
-
 A collection of some small utility functions for easier interaction with the node.js [mongodb driver](https://www.npmjs.com/package/mongodb).
 
 Contains a small helper that connects to a database and some helpers that resolve references between documents.
 
 ```
 npm install @yeldirium/js-mongodb-utilities
+# or
+yarn install @yeldirium/js-mongodb-utilities
 ```
+
+## Status
+
+| Category         | Status                                                                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Version          | [![npm](https://img.shields.io/npm/v/@yeldirium/js-mongodb-utilities)](https://www.npmjs.com/package/@yeldirium/js-mongodb-utilities) |
+| Dependencies     | ![David](https://img.shields.io/david/yeldirium/js-mongodb-utilities)                                                                 |
+| Dev dependencies | ![David](https://img.shields.io/david/dev/yeldirium/js-mongodb-utilities)                                                             |
+| Build            | ![GitHub Actions](https://github.com/yeldiRium/js-mongodb-utilities/workflows/Release/badge.svg?branch=master)                        |
+| License          | ![GitHub](https://img.shields.io/github/license/yeldiRium/js-mongodb-utilities)                                                       |
 
 # DbRef
 

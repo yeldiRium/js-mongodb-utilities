@@ -275,7 +275,7 @@ describe("The function resolve()", () => {
   it("does not resolve beyond the given depth", async () => {
     // we build an endlessly nested dbref here, this will resolve
     // endlessly without a maximum depth
-    const dummyResolve = jest.fn(async (_, { id, collection }) => ({
+    const dummyResolve = jest.fn(async (_, { collection }) => ({
       recursion: {
         id: new ObjectID().toString(),
         collection

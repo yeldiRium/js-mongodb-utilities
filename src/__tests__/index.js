@@ -1,5 +1,4 @@
 const { MongoMemoryServer } = require("mongodb-memory-server");
-const R = require("ramda");
 
 const {
   connect,
@@ -141,7 +140,7 @@ describe("resolve", () => {
       })
     );
 
-    const c3d1Id = extractInsertedIdsFromMongoDBResult(
+    extractInsertedIdsFromMongoDBResult(
       await db.collection("c3").insertOne({
         thisIs: "c3d1",
         c1: [
@@ -160,7 +159,7 @@ describe("resolve", () => {
         }
       })
     );
-    const regressionArrayOfDocsIds = extractInsertedIdsFromMongoDBResult(
+    extractInsertedIdsFromMongoDBResult(
       await db.collection("c4").insertMany([
         {
           thisIs: "c4d1",
@@ -199,7 +198,7 @@ describe("resolve", () => {
       ])
     );
 
-    const regressionArrayOfNestedDbRefsId = extractInsertedIdsFromMongoDBResult(
+    extractInsertedIdsFromMongoDBResult(
       await db.collection("c5").insertOne({
         thisIs: "c5d1",
         c1: [

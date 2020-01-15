@@ -10,7 +10,8 @@
   "collaborators": [
     {
       "name": "Hannes Leutloff",
-      "email": "leutloff@marvelous.systems"
+      "email": "leutloff@marvelous.systems",
+      "url": "https://yeldirium.de"
     },
     {
       "name": "Noah Hummel",
@@ -22,23 +23,30 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "prettier --check src/**/*.js",
-    "test": "yarn run lint && jest",
-    "publish-patch": "yarn version --patch && git push --tags && git push",
-    "publish-minor": "yarn version --minor && git push --tags && git push",
-    "publish-major": "yarn version --major && git push --tags && git push"
+    "test": "yarn run test:lint && yarn run test:jest",
+    "test:jest": "jest",
+    "test:watch": "jest --watch",
+    "test:lint": "eslint \"**/*.js\"",
+    "test:lint:fix": "eslint --fix \"**/*.js\""
   },
   "jest": {
     "globalSetup": "./jest/setup.js"
   },
   "dependencies": {
     "mongodb": "3.3.2",
-    "ramda": "^0.26.1"
+    "ramda": "0.26.1"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "3.0.6",
+    "@semantic-release/git": "8.0.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-jest": "23.3.0",
+    "eslint-plugin-prettier": "3.1.2",
     "jest": "24.9.0",
     "mongodb-memory-server": "5.2.3",
-    "prettier": "^1.18.2",
-    "zufall": "^1.0.1"
+    "prettier": "1.18.2",
+    "semantic-release": "16.0.1",
+    "zufall": "1.0.1"
   }
 }
