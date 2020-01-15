@@ -891,13 +891,6 @@ async-limiter@~1.0.0:
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
 
-async@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
-  integrity sha512-fNEiL2+AZt6AlAw/29Cr0UDe4sRAHCpEHh54WMz+Bb7QfNcFw4h3loofyJpLeQs4Yx7yuqu/2dLgM5hKOs6HlQ==
-  dependencies:
-    lodash "^4.17.10"
-
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -1637,7 +1630,7 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-spawn@^7.0.0:
+cross-spawn@^7.0.0, cross-spawn@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.1.tgz#0ab56286e0f7c24e153d04cc2aa027e43a9a5d14"
   integrity sha512-u7v4o84SwFpD32Z8IIcPZ6z1/ie24O6RU3RbtL5Y316l3KuHVPx9ItBgWQ6VlfAFnRnTtMUrsQ9MUUTuEZjogg==
@@ -2452,7 +2445,7 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-find-cache-dir@^3.0.0:
+find-cache-dir@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-3.2.0.tgz#e7fe44c1abc1299f516146e563108fd1006c1874"
   integrity sha512-1JKclkYYsf1q9WIJKLZa9S9muC+08RIjzAlLrK4QcYLJMS6mk9yombQ9qf+zJ7H9LS800k0s44L4sDq9VYzqyg==
@@ -2678,10 +2671,12 @@ get-caller-file@^2.0.1:
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
-get-port@^5.0.0:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/get-port/-/get-port-5.1.1.tgz#0469ed07563479de6efb986baf053dcd7d4e3193"
-  integrity sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==
+get-port@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/get-port/-/get-port-5.0.0.tgz#aa22b6b86fd926dd7884de3e23332c9f70c031a6"
+  integrity sha512-imzMU0FjsZqNa6BqOjbbW6w5BivHIuQKopjpPqcnx0AVHJQKCxK1O+Ab3OrVXhrekqfVMjwA9ZYu062R+KcIsQ==
+  dependencies:
+    type-fest "^0.3.0"
 
 get-stdin@^6.0.0:
   version "6.0.0"
@@ -2719,13 +2714,6 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
-
-getos@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/getos/-/getos-3.1.1.tgz#967a813cceafee0156b0483f7cffa5b3eff029c5"
-  integrity sha512-oUP1rnEhAr97rkitiszGP9EgDVYnmchgFzfqRzSkgtfv7ai6tEi7Ko8GgjNXts7VLWEqrTWyhsOKLe5C5b/Zkg==
-  dependencies:
-    async "2.6.1"
 
 getpass@^0.1.1:
   version "0.1.7"
@@ -2971,21 +2959,21 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-https-proxy-agent@^2.2.1, https-proxy-agent@^2.2.3:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-2.2.4.tgz#4ee7a737abd92678a293d9b34a1af4d0d08c787b"
-  integrity sha512-OmvfoQ53WLjtA9HeYP9RNrWMJzzAz1JGaSFr1nijg0PVR1JaD/xbJq1mdEIIlxGpXp9eSe/O2LgU9DJmTPd0Eg==
-  dependencies:
-    agent-base "^4.3.0"
-    debug "^3.1.0"
-
-https-proxy-agent@^4.0.0:
+https-proxy-agent@4.0.0, https-proxy-agent@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-4.0.0.tgz#702b71fb5520a132a66de1f67541d9e62154d82b"
   integrity sha512-zoDhWrkR3of1l9QAL8/scJZyLu8j/gBkcwcaQOZh7Gyh/+uJQzGVETdgT30akuwkpL8HTRfssqI3BZuV18teDg==
   dependencies:
     agent-base "5"
     debug "4"
+
+https-proxy-agent@^2.2.3:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-2.2.4.tgz#4ee7a737abd92678a293d9b34a1af4d0d08c787b"
+  integrity sha512-OmvfoQ53WLjtA9HeYP9RNrWMJzzAz1JGaSFr1nijg0PVR1JaD/xbJq1mdEIIlxGpXp9eSe/O2LgU9DJmTPd0Eg==
+  dependencies:
+    agent-base "^4.3.0"
+    debug "^3.1.0"
 
 human-signals@^1.1.1:
   version "1.1.1"
@@ -4324,7 +4312,7 @@ lodash.without@~4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
   integrity sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=
 
-lodash@^4.17.10, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
+lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -4640,35 +4628,34 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-mongodb-memory-server-core@5.2.3:
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-5.2.3.tgz#8c638ffc6052aba2eb82005d12811d854db92e20"
-  integrity sha512-pNmKOMRHS5tSs3aVy3oxZzUFLpXLEYiQIgqKVYjUKWAV85fTnKeLttn/gMVRirmPJ2WFIXpB/jIwktwDRKLvuA==
+mongodb-memory-server-core@6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.2.2.tgz#7119c4163156696320aa67411f2c3e922fc17b1f"
+  integrity sha512-oPQtLZtKSOyqQvFSXSZIR1y3lR40GouzHUurOIPu7fJ0Tf4Mc/J2lAVGH9n2keMlsqY62GAZf8+AOYyQkai4fw==
   dependencies:
     camelcase "^5.3.1"
-    cross-spawn "^6.0.5"
+    cross-spawn "^7.0.1"
     debug "^4.1.1"
     decompress "^4.2.0"
     dedent "^0.7.0"
-    find-cache-dir "^3.0.0"
+    find-cache-dir "3.2.0"
     find-package-json "^1.2.0"
-    get-port "^5.0.0"
-    getos "^3.1.1"
-    https-proxy-agent "^2.2.1"
+    get-port "5.0.0"
+    https-proxy-agent "4.0.0"
     lockfile "^1.0.4"
     md5-file "^4.0.0"
     mkdirp "^0.5.1"
     tmp "^0.1.0"
-    uuid "^3.2.1"
+    uuid "^3.3.3"
   optionalDependencies:
-    mongodb ">=3.2.7"
+    mongodb "^3.2.7"
 
-mongodb-memory-server@5.2.3:
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-5.2.3.tgz#9f2a1f32b43fb92c38efb3da084347d4ecba1365"
-  integrity sha512-4FgYNoQfMgiE83sj76WMs3Mg1VxvgrX97AloJggzQLx37AYyOYxao961yfAT36zvnWWDRTCD20g6VF/jkJ9RZA==
+mongodb-memory-server@6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.2.2.tgz#1bfd129b48c6a6314f3c9a84d405bede33a571bb"
+  integrity sha512-UmBMURVhb/G4x31jwCMdcILvWi3nwEPjXiPx7kIiUUeeVqEgCrdWDCZ+KVsXiGv8xnSJJF/MtA3qDBIS1xrxpw==
   dependencies:
-    mongodb-memory-server-core "5.2.3"
+    mongodb-memory-server-core "6.2.2"
 
 mongodb@3.3.2:
   version "3.3.2"
@@ -4679,7 +4666,7 @@ mongodb@3.3.2:
     require_optional "^1.0.1"
     safe-buffer "^5.1.2"
 
-mongodb@>=3.2.7, mongodb@^3.3.2:
+mongodb@^3.2.7, mongodb@^3.3.2:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.5.0.tgz#83f892e5a6e2438e6fa0255841a70c38e36241ba"
   integrity sha512-M1usRxQ/Xl/IZuTK4LJXViwzaGkH1CuccH4iXqK46+Nv25Y7bAIawoxEZQBAlMtLQhRKyEzVoBK0NBTY01Zp5Q==
@@ -7039,7 +7026,7 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-type-fest@^0.3.1:
+type-fest@^0.3.0, type-fest@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.3.1.tgz#63d00d204e059474fe5e1b7c011112bbd1dc29e1"
   integrity sha512-cUGJnCdr4STbePCgqNFbpVNCepa+kAVohJs1sLhxzdH+gnEoOd8VhbYa7pD3zZYGiURWM2xzEII3fQcRizDkYQ==
@@ -7216,7 +7203,7 @@ util.promisify@^1.0.0:
     define-properties "^1.1.2"
     object.getownpropertydescriptors "^2.0.3"
 
-uuid@^3.2.1, uuid@^3.3.2, uuid@^3.3.3:
+uuid@^3.3.2, uuid@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
