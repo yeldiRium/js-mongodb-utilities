@@ -44,7 +44,7 @@
     "eslint-plugin-jest": "23.6.0",
     "eslint-plugin-prettier": "3.1.2",
     "jest": "24.9.0",
-    "mongodb-memory-server": "6.2.2",
+    "mongodb-memory-server": "6.2.3",
     "prettier": "1.19.1",
     "semantic-release": "16.0.2",
     "zufall": "1.0.1"
