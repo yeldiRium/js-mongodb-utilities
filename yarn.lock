@@ -561,6 +561,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/debug@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.5.tgz#b14efa8852b7768d898906613c23f688713e02cd"
+  integrity sha512-Q1y515GcOdTHgagaVFhHnIFQ38ygs/kmxdNpvpou+raI9UO3YZcHDngBSYKQklcKlvA7iuQlmIKbzvmxcOE9CQ==
+
 "@types/decompress@^4.2.3":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@types/decompress/-/decompress-4.2.3.tgz#98eed48af80001038aa05690b2094915f296fe65"
@@ -4729,12 +4734,13 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-mongodb-memory-server-core@6.2.4:
-  version "6.2.4"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.2.4.tgz#36390295e41b4aa3b2b65bec30c2a49551b1e54e"
-  integrity sha512-W64vmFmfChl/0WVi5Kwg5AhWcWqIaEHZnhU+WZ1Outs12uraUeagdoRucDug65GEL1grUpuSHuz1tBRds+o2IQ==
+mongodb-memory-server-core@6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.3.1.tgz#13b8404623eaab98f7b0738200cd5377a3ae1782"
+  integrity sha512-aRbRJJYAJOLbGmwOMb6ghbmGLBYrpJnEFSGhIlrAQJ+gjGLErbKsBG1CjLD9VEcjZ1/V1rPHnsrGlaGTNTmJxA==
   dependencies:
     "@types/cross-spawn" "^6.0.1"
+    "@types/debug" "^4.1.5"
     "@types/decompress" "^4.2.3"
     "@types/dedent" "^0.7.0"
     "@types/find-cache-dir" "^2.0.0"
@@ -4762,12 +4768,12 @@ mongodb-memory-server-core@6.2.4:
   optionalDependencies:
     mongodb "^3.2.7"
 
-mongodb-memory-server@6.2.4:
-  version "6.2.4"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.2.4.tgz#d67db84b9a4a407a4485ddefddd13cb4336df2a8"
-  integrity sha512-QWm1oFsc6DBJFE8JZt/bubOnrpbyODC4sAD+MHSAaU51wZwL7J17tr7gtX3ChkdwI9jmTFGASySM0XsKSY3qSA==
+mongodb-memory-server@6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.3.1.tgz#505cecc6292ab56d2f9a48d4ab71e71eb072a5b3"
+  integrity sha512-S9ucLu4dLrSANqli3WOKzCQwAqj1RMia+oXoNcuSCTkbW7R1s1Ll0nH0n73Q5BPvTuLsKbMoVEgwxg+q5zGBYw==
   dependencies:
-    mongodb-memory-server-core "6.2.4"
+    mongodb-memory-server-core "6.3.1"
 
 mongodb@3.5.4, mongodb@^3.2.7, mongodb@^3.3.2:
   version "3.5.4"
