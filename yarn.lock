@@ -4745,10 +4745,10 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-mongodb-memory-server-core@6.3.3:
-  version "6.3.3"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.3.3.tgz#bb446e9fcd1062042cb9c411a163fb25a6557ccd"
-  integrity sha512-X6ykRFK92tdX7w61+hTC+DXBbpNC9G76I3aOkV6HknNVG3U6/5Ht/NN6Wdh5CPATj78W2AaBS1smvby941fXpg==
+mongodb-memory-server-core@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.4.0.tgz#a6b3244738ec95b7a426dcfa2d3baed69b3161ef"
+  integrity sha512-Kl8r+vFBpPGzNfLYKKUJ5Odmk4kH/t0dWmlk3Kk467THRIjZ4KaXuo4d6Bpb2oUq74BrSxrOxizTcBeDeLdn3Q==
   dependencies:
     "@types/cross-spawn" "^6.0.1"
     "@types/debug" "^4.1.5"
@@ -4779,12 +4779,12 @@ mongodb-memory-server-core@6.3.3:
   optionalDependencies:
     mongodb "^3.5.4"
 
-mongodb-memory-server@6.3.3:
-  version "6.3.3"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.3.3.tgz#c80534ddd51a0aad47aad004b021d092d20d3b52"
-  integrity sha512-MS+MPTvJhaPUsYCWQ+H66C0A5BQWTgdT5PgN6P5WeinAgN6j+eOjH561UnPdXooj7bHXB4dlvVYaXaJrbegucA==
+mongodb-memory-server@6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.4.0.tgz#47f57a164c2f47dc226eae3babccf2df3e3e9810"
+  integrity sha512-si7JARYP4S3h5L4ad9YflUKllD1NCVEhIwk+4P9N77Mlo6bEEY5cvHJMnWU+YwRb1Bw2ri3FcWulsiLna+39AA==
   dependencies:
-    mongodb-memory-server-core "6.3.3"
+    mongodb-memory-server-core "6.4.0"
 
 mongodb@3.5.5, mongodb@^3.3.2, mongodb@^3.5.4:
   version "3.5.5"
