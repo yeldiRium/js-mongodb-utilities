@@ -13,7 +13,7 @@ async function connect(uri, dbName) {
   try {
     const client = await MongoClient.connect(uri, {
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
     });
     console.log("Connected to MongoDB.");
     return { client, db: client.db(dbName) };
@@ -89,5 +89,5 @@ module.exports = {
   extractInsertedIdsFromMongoDBResult,
   stripIds,
   isDbRef: DbRef.isDbRef,
-  resolve
+  resolve,
 };

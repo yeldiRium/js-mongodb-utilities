@@ -5,7 +5,7 @@ const {
   extractInsertedIdsFromMongoDBResult,
   isDbRef,
   resolve,
-  stripIds
+  stripIds,
 } = require("../");
 
 async function setUpMemoryDb() {
@@ -19,7 +19,7 @@ async function setUpMemoryDb() {
   return {
     client,
     db,
-    mongod
+    mongod,
   };
 }
 
@@ -37,7 +37,7 @@ describe("isDbRef", () => {
       1.4567,
       Number.NaN,
       "ಠ_ಠ",
-      ["( ͡° ͜ʖ ͡°)╭∩╮", "(╯ ͠° ͟ʖ ͡°)╯┻━┻", "( ͡° ͜ʖ ͡°)"]
+      ["( ͡° ͜ʖ ͡°)╭∩╮", "(╯ ͠° ͟ʖ ͡°)╯┻━┻", "( ͡° ͜ʖ ͡°)"],
     ];
 
     for (const v of theValues) {
@@ -46,20 +46,20 @@ describe("isDbRef", () => {
   });
   it("rejects an object without collection", () => {
     const notADbRef = {
-      id: "path of exile"
+      id: "path of exile",
     };
     expect(isDbRef(notADbRef)).toBe(false);
   });
   it("rejects an object without id", () => {
     const notADbRef = {
-      collection: "of smelly socks"
+      collection: "of smelly socks",
     };
     expect(isDbRef(notADbRef)).toBe(false);
   });
   it("accepts a DbRef", () => {
     const definitelyADbRef = {
       id: "path of exile",
-      collection: "of smelly socks"
+      collection: "of smelly socks",
     };
     expect(isDbRef(definitelyADbRef)).toBe(true);
   });
@@ -81,7 +81,7 @@ describe("extractInsertedIdsFromMongoDBResult", () => {
 
   it("extracts the id from an insertOne", async () => {
     const c1d1Result = await db.collection("c1").insertOne({
-      thisIs: "c1d1"
+      thisIs: "c1d1",
     });
     const c1d1Id = c1d1Result.insertedId;
     expect(extractInsertedIdsFromMongoDBResult(c1d1Result)).toBe(c1d1Id);
@@ -90,16 +90,16 @@ describe("extractInsertedIdsFromMongoDBResult", () => {
   it("extracts the ids from an insertMany", async () => {
     const c1dxResult = await db.collection("c1").insertMany([
       {
-        thisIs: "c1d1"
+        thisIs: "c1d1",
       },
       {
-        thisIs: "c1d2"
+        thisIs: "c1d2",
       },
       {
-        thisIs: "c1d3"
-      }
+        thisIs: "c1d3",
+      },
     ]);
-    const ids = Object.values(c1dxResult.insertedIds).map(objId =>
+    const ids = Object.values(c1dxResult.insertedIds).map((objId) =>
       objId.toString()
     );
     expect(extractInsertedIdsFromMongoDBResult(c1dxResult)).toEqual(ids);
@@ -117,13 +117,13 @@ describe("resolve", () => {
 
     const c1d1Id = extractInsertedIdsFromMongoDBResult(
       await db.collection("c1").insertOne({
-        thisIs: "c1d1"
+        thisIs: "c1d1",
       })
     );
 
     const c1d2Id = extractInsertedIdsFromMongoDBResult(
       await db.collection("c1").insertOne({
-        thisIs: "c1d2"
+        thisIs: "c1d2",
       })
     );
 
@@ -132,8 +132,8 @@ describe("resolve", () => {
         thisIs: "c2d1",
         c1: {
           collection: "c1",
-          id: c1d1Id
-        }
+          id: c1d1Id,
+        },
       })
     );
 
@@ -143,17 +143,17 @@ describe("resolve", () => {
         c1: [
           {
             collection: "c1",
-            id: c1d1Id
+            id: c1d1Id,
           },
           {
             collection: "c1",
-            id: c1d2Id
-          }
+            id: c1d2Id,
+          },
         ],
         c2: {
           collection: "c2",
-          id: c2d1Id
-        }
+          id: c2d1Id,
+        },
       })
     );
     extractInsertedIdsFromMongoDBResult(
@@ -163,35 +163,35 @@ describe("resolve", () => {
           c1: [
             {
               collection: "c1",
-              id: c1d1Id
+              id: c1d1Id,
             },
             {
               collection: "c1",
-              id: c1d2Id
-            }
+              id: c1d2Id,
+            },
           ],
           c2: {
             collection: "c2",
-            id: c2d1Id
-          }
+            id: c2d1Id,
+          },
         },
         {
           thisIs: "c4d2",
           c1: [
             {
               collection: "c1",
-              id: c1d1Id
+              id: c1d1Id,
             },
             {
               collection: "c1",
-              id: c1d2Id
-            }
+              id: c1d2Id,
+            },
           ],
           c2: {
             collection: "c2",
-            id: c2d1Id
-          }
-        }
+            id: c2d1Id,
+          },
+        },
       ])
     );
 
@@ -202,16 +202,16 @@ describe("resolve", () => {
           {
             nested: {
               collection: "c1",
-              id: c1d1Id
-            }
+              id: c1d1Id,
+            },
           },
           {
             nested: {
               collection: "c1",
-              id: c1d1Id
-            }
-          }
-        ]
+              id: c1d1Id,
+            },
+          },
+        ],
       })
     );
   });
@@ -253,10 +253,7 @@ describe("resolve", () => {
   });
 
   it("resolves an array of non-DbRef documents with DbRefs in them", async () => {
-    const documents = await db
-      .collection("c4")
-      .find()
-      .toArray();
+    const documents = await db.collection("c4").find().toArray();
     const resolved = await resolve(db, documents);
     for (const r of resolved) {
       expect(r.c1[0]).toHaveProperty("thisIs");
@@ -289,12 +286,12 @@ describe("stripIds", () => {
     const theArray = [
       ["( ͡° ͜ʖ ͡°)╭∩╮", "(╯ ͠° ͟ʖ ͡°)╯┻━┻", "( ͡° ͜ʖ ͡°)"],
       { _id: "blablub" },
-      [{ peter: "lustig" }, { _id: "florp", quark: "fettarm" }]
+      [{ peter: "lustig" }, { _id: "florp", quark: "fettarm" }],
     ];
     const expected = [
       ["( ͡° ͜ʖ ͡°)╭∩╮", "(╯ ͠° ͟ʖ ͡°)╯┻━┻", "( ͡° ͜ʖ ͡°)"],
       {},
-      [{ peter: "lustig" }, { quark: "fettarm" }]
+      [{ peter: "lustig" }, { quark: "fettarm" }],
     ];
     expect(stripIds(theArray)).toEqual(expected);
   });
@@ -302,11 +299,11 @@ describe("stripIds", () => {
     const theObject = {
       _id: ["( ͡° ͜ʖ ͡°)╭∩╮", "(╯ ͠° ͟ʖ ͡°)╯┻━┻", "( ͡° ͜ʖ ͡°)"],
       diesenrödel: { _id: "blablub" },
-      houghjazz: [{ peter: "lustig" }, { _id: "florp", quark: "fettarm" }]
+      houghjazz: [{ peter: "lustig" }, { _id: "florp", quark: "fettarm" }],
     };
     const expected = {
       diesenrödel: {},
-      houghjazz: [{ peter: "lustig" }, { quark: "fettarm" }]
+      houghjazz: [{ peter: "lustig" }, { quark: "fettarm" }],
     };
     expect(stripIds(theObject)).toEqual(expected);
   });
