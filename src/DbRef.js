@@ -57,7 +57,7 @@ function children(node) {
       // we have to convert the key into an integer if the node
       // is an Array.
       key: isArray ? Number.parseInt(key) : key,
-      node
+      node,
     })),
     R.filter(({ node }) => isInnerNode(node))
   )(Object.entries(node));
@@ -93,7 +93,7 @@ const shouldResolve = (root, path, collections, { id, collection }) => {
  * @param {*} resolveDbRef A function receiving `db` and a dbref object to resolve and fetches it from the database.
  * @returns {*} A function able to resolve DbRefs in a given document
  */
-const resolve = resolveDbRef => async (
+const resolve = (resolveDbRef) => async (
   db,
   document,
   collections = null,
@@ -140,7 +140,7 @@ const resolve = resolveDbRef => async (
       q.push({
         node: child.node,
         depth,
-        path: [...path, child.key]
+        path: [...path, child.key],
       });
     }
   }
@@ -153,5 +153,5 @@ module.exports = {
   isInnerNode,
   children,
   shouldResolve,
-  resolve
+  resolve,
 };

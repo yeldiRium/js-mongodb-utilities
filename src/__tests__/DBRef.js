@@ -8,7 +8,7 @@ const {
   randomObjectOfTypes,
   VALUE_TYPES,
   OBJECT_TYPES,
-  randomDocument
+  randomDocument,
 } = require("zufall");
 
 const {
@@ -17,7 +17,7 @@ const {
   isDbRef,
   children,
   shouldResolve,
-  resolve
+  resolve,
 } = require("../DbRef");
 
 describe("The predicate isDbRef()", () => {
@@ -87,7 +87,7 @@ describe("The function children()", () => {
       { node: ["f", 4], childKeys: [] },
       { node: [null, 4], childKeys: [] },
       { node: [undefined, NaN], childKeys: [] },
-      { node: [2, { c: { d: { e: 2 } } }], childKeys: [1] }
+      { node: [2, { c: { d: { e: 2 } } }], childKeys: [1] },
     ];
     for (const { node, childKeys } of cases) {
       // [{child: ... , key: "bla"}]
@@ -127,14 +127,14 @@ describe("The predicate shouldResolve()", () => {
           quux: {
             murx: {
               id: theId.toString(),
-              collection: "mlem"
-            }
-          }
-        }
+              collection: "mlem",
+            },
+          },
+        },
       },
       bar: {
-        blorp: [1, 2, 4]
-      }
+        blorp: [1, 2, 4],
+      },
     };
     expect(
       shouldResolve(
@@ -156,14 +156,14 @@ describe("The predicate shouldResolve()", () => {
           quux: {
             murx: {
               id: theId.toString(),
-              collection: "mlem"
-            }
-          }
-        }
+              collection: "mlem",
+            },
+          },
+        },
       },
       bar: {
-        blorp: [1, 2, 4]
-      }
+        blorp: [1, 2, 4],
+      },
     };
     expect(
       shouldResolve(
@@ -185,14 +185,14 @@ describe("The predicate shouldResolve()", () => {
           quux: {
             murx: {
               id: theId.toString(),
-              collection: "mlem"
-            }
-          }
-        }
+              collection: "mlem",
+            },
+          },
+        },
       },
       bar: {
-        blorp: [1, 2, 4]
-      }
+        blorp: [1, 2, 4],
+      },
     };
     expect(
       shouldResolve(
@@ -210,7 +210,7 @@ describe("The function resolve()", () => {
     const dummyResolve = jest.fn(async (_, { id, collection }) => ({
       resolved: true,
       _id: new ObjectID(id),
-      collection
+      collection,
     }));
     const testResolve = resolve(dummyResolve);
 
@@ -230,7 +230,7 @@ describe("The function resolve()", () => {
     const dummyResolve = jest.fn(async (_, { id, collection }) => ({
       resolved: true,
       _id: new ObjectID(id),
-      collection
+      collection,
     }));
     const testResolve = resolve(dummyResolve);
     const id1 = new ObjectID();
@@ -239,34 +239,34 @@ describe("The function resolve()", () => {
     const document = {
       ref1a: {
         id: id1.toString(),
-        collection: "bla"
+        collection: "bla",
       },
       ref1b: {
         id: id1.toString(),
-        collection: "bla"
+        collection: "bla",
       },
       ref1c: {
         id: id1.toString(),
-        collection: "bla"
+        collection: "bla",
       },
       foo: {
         ref2a: {
           id: id2.toString(),
-          collection: "bla"
+          collection: "bla",
         },
         bar: {
           ref2b: {
             id: id2.toString(),
-            collection: "bla"
+            collection: "bla",
           },
           baz: {
             ref3a: {
               id: id3.toString(),
-              collection: "bla"
-            }
-          }
-        }
-      }
+              collection: "bla",
+            },
+          },
+        },
+      },
     };
     await testResolve(null, document);
     expect(dummyResolve).toHaveBeenCalledTimes(3);
@@ -278,14 +278,14 @@ describe("The function resolve()", () => {
     const dummyResolve = jest.fn(async (_, { collection }) => ({
       recursion: {
         id: new ObjectID().toString(),
-        collection
-      }
+        collection,
+      },
     }));
     const testResolve = resolve(dummyResolve);
     const document = {
       a: {
-        b: { c: { d: { id: new ObjectID().toString(), collection: "bla" } } }
-      }
+        b: { c: { d: { id: new ObjectID().toString(), collection: "bla" } } },
+      },
     };
     const maxDepth = 5;
     await testResolve(null, document, null, maxDepth);
