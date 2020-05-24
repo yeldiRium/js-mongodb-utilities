@@ -46,7 +46,7 @@
     "jest": "26.0.1",
     "mongodb-memory-server": "6.6.0",
     "prettier": "2.0.5",
-    "semantic-release": "17.0.7",
+    "semantic-release": "17.0.8",
     "zufall": "1.0.1"
   }
 }
