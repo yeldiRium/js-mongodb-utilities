@@ -33,7 +33,7 @@
     "globalSetup": "./jest/setup.js"
   },
   "dependencies": {
-    "mongodb": "3.5.9",
+    "mongodb": "3.6.0",
     "ramda": "0.27.1"
   },
   "devDependencies": {
