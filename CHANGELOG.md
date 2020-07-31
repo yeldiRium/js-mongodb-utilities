@@ -1,3 +1,11 @@
+## [2.0.15](https://github.com/yeldiRium/js-mongodb-utilities/compare/v2.0.14...v2.0.15) (2020-07-31)
+
+
+### Bug Fixes
+
+* bump mongodb from 3.5.9 to 3.6.0 ([4659b7b](https://github.com/yeldiRium/js-mongodb-utilities/commit/4659b7bb1199e3adcd9af4615bf78b25c05b2dd8))
+* bump ramda from 0.27.0 to 0.27.1 ([d504962](https://github.com/yeldiRium/js-mongodb-utilities/commit/d5049624ef792bfea3551680221dd7d561682f88))
+
 ## [2.0.14](https://github.com/yeldiRium/js-mongodb-utilities/compare/v2.0.13...v2.0.14) (2020-06-26)
 
 
