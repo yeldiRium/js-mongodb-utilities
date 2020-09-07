@@ -1,3 +1,10 @@
+## [2.0.16](https://github.com/yeldiRium/js-mongodb-utilities/compare/v2.0.15...v2.0.16) (2020-09-07)
+
+
+### Bug Fixes
+
+* bump mongodb from 3.6.0 to 3.6.1 ([e54dd55](https://github.com/yeldiRium/js-mongodb-utilities/commit/e54dd558167246e6f1bc70400ea9298b50f8a641))
+
 ## [2.0.15](https://github.com/yeldiRium/js-mongodb-utilities/compare/v2.0.14...v2.0.15) (2020-07-31)
 
 
