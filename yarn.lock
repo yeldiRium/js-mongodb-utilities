@@ -1300,7 +1300,7 @@ bin-links@^1.1.2, bin-links@^1.1.8:
     npm-normalize-package-bin "^1.0.0"
     write-file-atomic "^2.3.0"
 
-bl@^2.2.0:
+bl@^2.2.0, bl@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/bl/-/bl-2.2.1.tgz#8c11a7b730655c5d56898cdc871224f40fd901d5"
   integrity sha512-6Pesp1w0DEX1N550i/uGV/TqucVL4AM/pgThFSN/Qq9si1/DF9aIHs1BxD8V/QU0HoeHO6cQRTAuYnLPKq1e4g==
@@ -1308,10 +1308,10 @@ bl@^2.2.0:
     readable-stream "^2.3.5"
     safe-buffer "^5.1.1"
 
-bl@^4.0.1:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/bl/-/bl-4.0.2.tgz#52b71e9088515d0606d9dd9cc7aa48dc1f98e73a"
-  integrity sha512-j4OH8f6Qg2bGuWfRiltT2HYGx0e1QcBTrK9KAHNMwMZdQnDZFk0ZSYIpADjYCB3U12nicC5tVJwSIhwOWjb4RQ==
+bl@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/bl/-/bl-4.0.3.tgz#12d6287adc29080e22a705e5764b2a9522cdc489"
+  integrity sha512-fs4G6/Hu4/EE+F75J8DuN/0IpQqNjAdC7aEQv7Qt8MHGUH7Ckv2MwTEEeN9QehD0pfIDkMI1bkHYkKy7xHyKIg==
   dependencies:
     buffer "^5.5.0"
     inherits "^2.0.4"
@@ -4805,10 +4805,10 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-mongodb-memory-server-core@6.7.1:
-  version "6.7.1"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.7.1.tgz#51edb8868386b0e751c175de63a6284cec717edc"
-  integrity sha512-tOpQ04sK5aFrTjzviNpumDvmyq7TVB5R0YitWJ3x+y8CJKNJXUviSN8MHEh06T30Vr2GQL3bLyZugsQ2Df3zSw==
+mongodb-memory-server-core@6.7.5:
+  version "6.7.5"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server-core/-/mongodb-memory-server-core-6.7.5.tgz#f3fd1e517e8f798af8a93bb1d37a6cd0b04e7427"
+  integrity sha512-G4Wv1MAQg5B/aXpRwD5jy6Ubspcd7w4LsFl+rYJHhUgj8VMZGa4hX1pcEW26ghaw7gm24YsyXwDezHZPtxijKA==
   dependencies:
     "@types/tmp" "^0.2.0"
     camelcase "^6.0.0"
@@ -4822,19 +4822,19 @@ mongodb-memory-server-core@6.7.1:
     md5-file "^5.0.0"
     mkdirp "^1.0.4"
     semver "^7.3.2"
-    tar-stream "^2.1.3"
+    tar-stream "^2.1.4"
     tmp "^0.2.1"
     uuid "8.3.0"
     yauzl "^2.10.0"
   optionalDependencies:
-    mongodb "3.6.1"
+    mongodb "3.6.2"
 
-mongodb-memory-server@6.7.1:
-  version "6.7.1"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.7.1.tgz#a2904ca534a2fa1fc28d4872c29b5f7cebb84afd"
-  integrity sha512-z9wBVFR/PGnFpgrTB9eDXK/XXPisdHdwVg91VSFrBDbgMTwsMj/HrW3ZDoaUdtQ2yxQulheJWjWD6dkZUThAtw==
+mongodb-memory-server@6.7.5:
+  version "6.7.5"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-6.7.5.tgz#3eb4033bba56bd1822b73f581e0badc12af05401"
+  integrity sha512-Ws4IRrFqCEoD27jzFHfST9lXyrgDddpLXcoQ7B0S4Sc5v3N5tpchmvueuZ0BMj4bwwBJlWl64nXNgCoooYvupw==
   dependencies:
-    mongodb-memory-server-core "6.7.1"
+    mongodb-memory-server-core "6.7.5"
 
 mongodb@3.6.1, mongodb@^3.3.2:
   version "3.6.1"
@@ -4842,6 +4842,19 @@ mongodb@3.6.1, mongodb@^3.3.2:
   integrity sha512-uH76Zzr5wPptnjEKJRQnwTsomtFOU/kQEU8a9hKHr2M7y9qVk7Q4Pkv0EQVp88742z9+RwvsdTw6dRjDZCNu1g==
   dependencies:
     bl "^2.2.0"
+    bson "^1.1.4"
+    denque "^1.4.1"
+    require_optional "^1.0.1"
+    safe-buffer "^5.1.2"
+  optionalDependencies:
+    saslprep "^1.0.0"
+
+mongodb@3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.6.2.tgz#1154a4ac107bf1375112d83a29c5cf97704e96b6"
+  integrity sha512-sSZOb04w3HcnrrXC82NEh/YGCmBuRgR+C1hZgmmv4L6dBz4BkRse6Y8/q/neXer9i95fKUBbFi4KgeceXmbsOA==
+  dependencies:
+    bl "^2.2.1"
     bson "^1.1.4"
     denque "^1.4.1"
     require_optional "^1.0.1"
@@ -6877,12 +6890,12 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tar-stream@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/tar-stream/-/tar-stream-2.1.3.tgz#1e2022559221b7866161660f118255e20fa79e41"
-  integrity sha512-Z9yri56Dih8IaK8gncVPx4Wqt86NDmQTSh49XLZgjWpGZL9GK9HKParS2scqHCC4w6X9Gh2jwaU45V47XTKwVA==
+tar-stream@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/tar-stream/-/tar-stream-2.1.4.tgz#c4fb1a11eb0da29b893a5b25476397ba2d053bfa"
+  integrity sha512-o3pS2zlG4gxr67GmFYBLlq+dM8gyRGUOvsrHclSkvtVtQbjV0s/+ZE8OpICbaj8clrX3tjeHngYGP7rweaBnuw==
   dependencies:
-    bl "^4.0.1"
+    bl "^4.0.3"
     end-of-stream "^1.4.1"
     fs-constants "^1.0.0"
     inherits "^2.0.3"
