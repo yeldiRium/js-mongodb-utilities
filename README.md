@@ -1,5 +1,9 @@
 # JS Mongodb Utilities
 
+**This library is no longer maintained.**
+
+---
+
 A collection of some small utility functions for easier interaction with the node.js [mongodb driver](https://www.npmjs.com/package/mongodb).
 
 Contains a small helper that connects to a database and some helpers that resolve references between documents.
