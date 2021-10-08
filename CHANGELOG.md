@@ -1,3 +1,10 @@
+## [2.0.19](https://github.com/yeldiRium/js-mongodb-utilities/compare/v2.0.18...v2.0.19) (2021-10-08)
+
+
+### Bug Fixes
+
+* Deprecate package. ([37f7541](https://github.com/yeldiRium/js-mongodb-utilities/commit/37f7541a444d581c7bfcd5d9f172344c89ff9396))
+
 ## [2.0.18](https://github.com/yeldiRium/js-mongodb-utilities/compare/v2.0.17...v2.0.18) (2020-12-14)
 
 
